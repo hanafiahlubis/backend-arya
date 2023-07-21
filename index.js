@@ -18,7 +18,7 @@ app.use(cors());
 // app.use(cors(corsOptions));
 // app.options("*", cors(corsOptions)); // Men
 
-app.get("/api/food", async (req, res) => {
+app.get("/api/food-arrya-segara", async (req, res) => {
     console.log("ssss");
     const results = await client.query("select * from food");
     console.log(results.rows)
