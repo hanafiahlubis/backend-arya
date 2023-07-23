@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUPERR SCOOPE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li class="nav-1"><a href="#">Sowpi</a></li>
+        <li class="nav-2"><a href="#">Product</a></li>
+        <li class="nav-2"><a href="#">Help</a></li>
+        <li class="nav-2"><a href="#">about</a></li>
+        <li class="nav-2"><a href="#">Profil</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="main-1">
+        <div class="contain-main-1">
+          <img
+            src="https://cf.shopee.co.id/file/id-50009109-56ec49ab5e490e20b849d61fc13d82e1_xxhdpi"
+            alt=""
+          />
+        </div>
+        <div class="contain-main-2">
+          <img
+            src="https://cf.shopee.co.id/file/id-50009109-6bebff20ea3c2e7cbec66691d1eaacf0_xhdpi"
+            alt=""
+          />
+          <img
+            src="https://cf.shopee.co.id/file/id-50009109-aa25b717b2332513e400a905442682cf_xhdpi"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="main-2">
+        <div>Sowpii Pilih Local</div>
+        <div>Serba Seribu</div>
+        <div>Pulsa & Tagihan</div>
+        <div>Infashion</div>
+        <div>Soupi Supermarket</div>
+        <div>Bayar di tempat</div>
+        <div>Murah Lebay</div>
+        <div>Gratis Ongkir & Voucher</div>
+        <div>Sowpii Barokah</div>
+        <div>Semua Promo</div>
+      </div>
+
+      <div class="main-3">Flash Sale</div>
+
+      <div id="nama-barang"></div>
+
+      <div class="main-5">Prodak Terlaris</div>
+
+      <div class="bebas" id="prodak"></div>
+    </main>
+
+    <footer>Copyright &copy; 2023 | SUPERR KENYY</footer>
+
+    <script>
+      const prodak = document.getElementById("prodak");
+
+      async function tampilkanKotak() {
+        const res = await fetch(
+          "https://arya-teal.vercel.app/api/food-arrya-segara"
+        );
+        const datas = await res.json();
+        console.log(datas);
+        datas.forEach((data, index) => {
+          const barang = document.createElement("div");
+          barang.textContent = "prodak " + (index + 1);
+
+          const img = document.createElement("img");
+          img.src = data.image;
+
+          barang.appendChild(img);
+          const p = document.createElement("p");
+          p.textContent = data.description;
+
+          barang.appendChild(p);
+          prodak.appendChild(barang);
+        });
+      }
+
+      tampilkanKotak();
+      //   for (let index = 1; index <= 4; index++) {
+      //     let barang = document.createElement("div");
+      //     barang.textContent = "prodak " + index;
+      //     document.getElementById("prodak").appendChild(barang);
+      //   }
+    </script>
+  </body>
+</html>
