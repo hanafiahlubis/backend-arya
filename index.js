@@ -3,6 +3,7 @@ import { client } from "./db.js";
 import bcrypt from "bcryptjs";
 import cors from "cors";
 import jwt from "jsonwebtoken";
+import data from "./main.js";
 
 const app = express();
 
@@ -22,6 +23,12 @@ app.use(cors());
 app.get("/api/food-arrya-segara", async (_req, res) => {
     const results = await client.query("select * from food");
     res.json(results.rows);
+});
+
+
+app.get("/api/motorcycle-akbar-hidayat", async (_req, res) => {
+    const results = data;
+    res.json(results);
 });
 
 app.post("/api/akun", async (req, res) => {
